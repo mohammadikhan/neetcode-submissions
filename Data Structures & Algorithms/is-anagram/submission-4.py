@@ -1,0 +1,21 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+
+        # Create two hashMaps and compare them to see if they are the same
+        # If they are, return True otherwise return false
+
+        if len(s) != len(t):
+            return False
+        
+        sCount = {}
+        tCount = {}
+
+        for i in range(len(s)):
+            sCount[s[i]] = 1 + sCount.get(s[i], 0)
+            tCount[t[i]] = 1 + tCount.get(t[i], 0)
+
+        for c in sCount:
+            if sCount[c] != tCount.get(c, 0):
+                return False
+        
+        return True
